@@ -1,0 +1,70 @@
+pipeline {
+agent {
+
+label 'master'
+
+}
+tools{
+maven 'MAVEN_HOME'
+java 'JAVA_HOME'
+}
+
+stages{
+stage('Code Validation'){
+  steps{
+      sh """
+      echo "Perform Validation"
+      mvn validate
+      """
+}
+}
+
+stage('Code compilation'){
+  steps{
+      sh """
+      echo "Perform Compilation"
+      mvn compile
+      """
+
+}
+}
+
+stage('Code Test'){
+  steps{
+      sh """
+      echo "Perform Test"
+      mvn test
+      """
+
+}
+}
+stage('Code Package'){
+  steps{
+      sh """
+      echo "Perform Package"
+      mvn package
+      """
+
+}
+}
+
+stage('Code Verify'){
+  steps{
+      sh """
+      echo "Perform Verify"
+      mvn verify
+      """
+
+}
+}
+
+ 
+
+
+}
+
+
+}
+
+
+
