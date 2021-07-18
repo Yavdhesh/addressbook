@@ -5,8 +5,8 @@ label 'master'
 
 }
 tools{
-maven 'MAVEN_HOME'
-java 'JAVA_HOME'
+maven 'maven'
+java 'java8'
 }
 
 stages{
